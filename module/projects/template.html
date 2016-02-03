@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Project List</h1>    
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <table class="table-bordered">
+                <tr>
+                    <th>Serial No</th>
+                    <th>Project Id</th>
+                    <th>User Name</th>
+                    <th>Department</th>
+                    <th>Assigned To</th>
+                    <th>Action</th>
+                </tr>
+                <tr ng-repeat="user in userListdata.userList track by $index" style="text-align: center;">
+                    <td>{{$index + 1}}</td>
+                    <td>{{user.member_id}}</td>
+                    <td>{{user.member_name}}</td>
+                    <td>{{user.department}}</td>
+                    <td>{{user.role}}</td>
+                    <td>Delete</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div> 

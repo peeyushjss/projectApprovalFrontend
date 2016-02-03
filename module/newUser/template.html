@@ -1,0 +1,173 @@
+<div class="container" id="saveUser">
+    <div class="row">
+        <h1 style="text-align: center;">New User</h1>    
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form name="myform" novalidate>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="firstname" class="form-control input-lg" placeholder="First Name" ng-model="newUserdata.firstname">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="lastname" class="form-control input-lg" placeholder="Last Name" ng-model="newUserdata.lastname">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 25px; font-weight: initial; margin: 5px 50px;">User Role:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <select name="role" ng-model="newUserdata.role" style="width: 260px; height: 46px; border-radius: 5px;">
+                                <option value="student">STUDENT</option>
+                                <option value="hod">HOD</option>
+                                <option value="projectIncharge">PROJECT INCHARGE</option>
+                                <option value="internalGuide">INTERNAL GUIDE</option>
+                            </select>     
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 25px; font-weight: initial; margin: 5px 50px;">Department:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <select name="department" ng-model="newUserdata.department" style="width: 260px; height: 46px; border-radius: 5px;">
+                                <option value="BBA">BBA</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BTECH">BTECH</option>
+                                <option value="MBA">MBA</option>
+                                <option value="MCA">MCA</option>
+                            </select>     
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control input-lg" placeholder="Password" ng-model="newUserdata.password">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="cpassword" class="form-control input-lg" placeholder="Confirm Password" ng-model="newUserdata.cpassword">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 col-lg-12"><i ng-hide="newUserdata.mySpin" style="font-size: 25px; margin-left: 318px; margin-top: -15px;" class="ic fa-li fa fa-spinner fa-spin mySpin"></i></div>
+                </div>
+                <hr class="colorgraph">
+
+                <div class="row" style="margin-bottom: 25px;">
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Submit" class="btn btn-primary btn-block btn-lg" ng-click="createUser(newUserdata);"></div>
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Back" class="btn btn-primary btn-block btn-lg" ng-click="back();"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+
+<div class="container" id="updateUser">
+    <div class="row">
+        <h1 style="text-align: center;">Update User</h1>    
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form name="myform" novalidate>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 25px; font-weight: initial; margin: 5px 50px;">UserId:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="memberId" class="form-control input-lg" placeholder="Member Id" ng-model="updateUserdata.memberId" ng-disabled="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="firstname" class="form-control input-lg" placeholder="First Name" ng-model="updateUserdata.firstname">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="lastname" class="form-control input-lg" placeholder="Last Name" ng-model="updateUserdata.lastname">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 25px; font-weight: initial; margin: 5px 50px;">User Role:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <select name="role" ng-model="updateUserdata.role" style="width: 260px; height: 46px; border-radius: 5px;">
+                                <option value="student">STUDENT</option>
+                                <option value="hod">HOD</option>
+                                <option value="projectIncharge">PROJECT INCHARGE</option>
+                                <option value="internalGuide">INTERNAL GUIDE</option>
+                            </select>     
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 25px; font-weight: initial; margin: 5px 50px;">Department:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <select name="department" ng-model="updateUserdata.department" style="width: 260px; height: 46px; border-radius: 5px;">
+                                <option value="BBA">BBA</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BTECH">BTECH</option>
+                                <option value="MBA">MBA</option>
+                                <option value="MCA">MCA</option>
+                            </select>     
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control input-lg" placeholder="Password" ng-model="updateUserdata.password">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="cpassword" class="form-control input-lg" placeholder="Confirm Password" ng-model="updateUserdata.cpassword">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 col-lg-12"><i ng-hide="updateUserdata.mySpin" style="font-size: 25px; margin-left: 318px; margin-top: -15px;" class="ic fa-li fa fa-spinner fa-spin mySpin"></i></div>
+                </div>
+                <hr class="colorgraph">
+
+                <div class="row" style="margin-bottom: 25px;">
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Submit" class="btn btn-primary btn-block btn-lg" ng-click="updateUser(updateUserdata);"></div>
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Back" class="btn btn-primary btn-block btn-lg" ng-click="back();"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 

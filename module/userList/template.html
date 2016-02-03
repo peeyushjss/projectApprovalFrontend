@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Users List</h1>    
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <table class="table-bordered">
+                <tr style="text-align: center;">
+                    <th>Serial No</th>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Delete User</th>
+                    <th>Update User</th>
+                </tr>
+                <tr ng-repeat="user in userListdata.userList track by $index" style="text-align: center;">
+                    <td>{{$index + 1}}</td>
+                    <td>{{user.member_id}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.department}}</td>
+                    <td>{{user.role}}</td>
+                    <td ng-click="del(user.member_id);">Delete</td>
+                    <td ng-click="update(user.member_id);">Update</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin: 50px 250px;">
+        <div class="col-xs-12 col-md-6 col-sm-offset-2 col-md-offset-3"><input type="submit" value="Back" class="btn btn-primary btn-block btn-lg" ng-click="back();"></div>
+    </div>
+</div> 
