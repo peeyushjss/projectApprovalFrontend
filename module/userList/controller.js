@@ -23,7 +23,7 @@
                             }
                             else {
                                 $scope.mySpin = true;
-                                alert(res.msg);
+                                self.userList = {};
                             }
                         });
                     }
