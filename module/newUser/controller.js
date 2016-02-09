@@ -4,6 +4,7 @@
     angular.module('newUser.controller', [])
             .controller('newUserCtrl', function ($scope, saveUser, $location, $stateParams, getUser, updateUser) {
 
+//**************************** START CODE FOR UPDATE PROFILE ****************************
                 if ($stateParams.id) {
                     $('#saveUser').hide();
                     $scope.updateUserdata = {};
@@ -52,9 +53,12 @@
                 else {
                     $('#updateUser').hide();
                 }
+//**************************** END CODE FOR UPDATE PROFILE ****************************                
 
                 $scope.newUserdata = {};
                 var self = $scope.newUserdata;
+                self.department = 'BCA';
+                self.role = 'student';
                 self.mySpin = true;
                 $scope.createUser = function (data) {
                     if (typeof data !== 'undefined') {
