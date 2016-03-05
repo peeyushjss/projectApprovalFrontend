@@ -1,88 +1,54 @@
 (function () {
     'use strict';
 
-    angular.module('userList.controller', [])
-            .controller('userListCtrl', function ($scope, getUserList, $localStorage, $location) {
+    angular.module('projects.controller', [])
+            .controller('projectCtrl', function ($scope, $localStorage, $location, Upload, getProjectDetail) {
 
-                $scope.userListdata = {};
-                var self = $scope.userListdata;
-                $scope.mySpin = true;
+                $scope.projectinfo = {};
+                var self = $scope.projectinfo;
+                self.mySpin = true;
+                self.type = 'project';
 
-                if (angular.isDefined($localStorage.id)) {
-                    self.memberId = $localStorage.id;
-                }
-
-                if (self.memberId) {
-                    $scope.mySpin = false;
-                    self.getRecord = getUserList.get();
-                    self.getRecord.$promise.then(function (res) {
-                        if (res.status === 1) {
-                            console.log(res);
-                            var response = res.details;
-                            $scope.mySpin = true;
-                            self.firstname = response.firstName;
-                            self.lastname = response.lastName;
-                            self.department = response.department;
-                            self.dob = response.dob;
-                            self.address = response.address;
-                            self.contact = response.contact;
-                            self.department = response.department;
-                            self.fathername = response.fatherName;
-                            self.mothername = response.motherName;
-                            self.qualification = response.qualification;
-                            self.specialization = response.specialization;
-                        }
-                        else {
-                            $scope.mySpin = true;
-                            alert(res.msg);
-                        }
+                if ($localStorage.id) {
+                    self.projectDetail = getProjectDetail.get({userId: $localStorage.id});
+                    self.projectDetail.$promise.then(function (res) {
+                        var record = res.details[0];
+                        self.name = record.project_name;
+                        self.introduction = record.project_description;
                     });
                 }
 
-//                $scope.submit = function (data) {
-//                    $scope.mySpin = false;
-//                    self.firstname = data.firstname;
-//                    self.lastname = data.lastname;
-//                    self.department = data.department;
-//                    self.dob = data.dob;
-//                    self.address = data.address;
-//                    self.contact = data.contact;
-//                    self.department = data.department;
-//                    self.fathername = data.fathername;
-//                    self.mothername = data.mothername;
-//                    self.qualification = data.qualification;
-//                    self.specialization = data.specialization;
-//                    if (typeof data !== 'undefined') {
-//                        self.updateRecord = getUserList.save({memberId: self.memberId, firstName: self.firstname,
-//                            lastName: self.lastname, department: self.department, dob: self.dob, address: self.address,
-//                            contact: self.contact, fatherName: self.fathername, motherName: self.mothername,
-//                            qualification: self.qualification, specialization: self.specialization});
-//                        self.updateRecord.$promise.then(function (res) {
-//                            if (res.status === 1) {
-//                                $scope.mySpin = true;
-//                                alert(res.msg);
-//                                self.firstname = '';
-//                                self.lastname = '';
-//                                self.department = '';
-//                                self.dob = '';
-//                                self.address = '';
-//                                self.contact = '';
-//                                self.department = '';
-//                                self.fathername = '';
-//                                self.mothername = '';
-//                                self.qualification = '';
-//                                self.specialization = '';
-//                            }
-//                            else {
-//                                $scope.mySpin = true;
-//                                alert(res.msg);
-//                            }
-//                        });
-//                    }
-//                    else {
-//                        alert('Fill all the fields');
-//                    }
-//                };
+                $scope.uploadProject = function (info) {
+                    self.mySpin = false;
+                    var file = info.docFile;
+                    var id = $localStorage.id;
+                    var name = info.name;
+                    var type = info.type;
+                    var intro = info.introduction;
+                    if (id && name && type && intro) {
+                        file.upload = Upload.upload({
+                            url: 'http://127.0.0.1:3000/saveProject',
+                            data: {file: file, id: id, name: name, type: type, intro: intro}
+                        });
+                        file.upload.then(function (response) {
+                            if (response.data.status === 1) {
+                                self.mySpin = true;
+                                $scope.filename = response.data.filename;
+                                $scope.filepath = response.data.filepath;
+                                self.name = '';
+                                self.introduction = '';
+                                self.docFile = '';
+                                alert('Project Uploaded...!!');
+                            }
+                            else {
+                                alert(response.data.error);
+                            }
+                        });
+                    }
+                    else {
+                        alert('Fill all the fields');
+                    }
+                };
 
                 $scope.back = function () {
                     $location.path('/admin');

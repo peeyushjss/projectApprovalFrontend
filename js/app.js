@@ -5,7 +5,7 @@
  */
 
 
-angular.module('project_approval_system', ['ngResource', 'ui.router', 'services', 'controllers', 'ngStorage',
+angular.module('project_approval_system', ['ngResource', 'ui.router', 'services', 'controllers', 'ngStorage', 'ngFileUpload',
     'admin.controller',
     'hod.controller',
     'projectIncharge.controller',
@@ -18,7 +18,9 @@ angular.module('project_approval_system', ['ngResource', 'ui.router', 'services'
     'ui.bootstrap.datetimepicker',
     'userList.controller',
     'userList.service',
-    'test.controller'
+    'test.controller',
+    'projects.controller',
+    'projects.service'
 ])
         .config(['$stateProvider', '$urlRouterProvider',
             function ($stateProvider, $urlRouteProvider) {
@@ -69,9 +71,14 @@ angular.module('project_approval_system', ['ngResource', 'ui.router', 'services'
                             controller: 'studentCtrl'
                         })
                         .state('updateProfile', {
-                            url: '/:userType/updateProfile',
+                            url: '/:userId/updateProfile',
                             templateUrl: 'module/updateProfile/template.html',
                             controller: 'updateProfileCtrl'
+                        })
+                        .state('project', {
+                            url: '/:userId/project',
+                            templateUrl: 'module/projects/template.html',
+                            controller: 'projectCtrl'
                         })
                         .state('test', {
                             url: '/test',

@@ -1,14 +1,14 @@
 (function () {
     'use strict';
 
-    angular.module('userList.service', [])
-////            SERVICE FOR SETTING PROFILE INFORMATION IN DATABASE
-//            .factory('setProfileDetails', function ($resource) {
-//                return $resource('http://127.0.0.1:3000/updateProfile');
-//            })
+    angular.module('projects.service', [])
+//            SERVICE FOR GETTING PROJECT INFORMATION OF A PERTICULAR USER
+            .factory('getProjectDetail', function ($resource) {
+                return $resource('http://127.0.0.1:3000/getProjectList/:userId', {userId: '@id'});
+            });
 
 //    SERVICE FOR GETTING PROFILE INFORMATION FROM DATABASE
-            .factory('getUserList', function ($resource) {
-                return $resource('http://127.0.0.1:3000/getUserList');
-            });
+//            .factory('getUserList', function ($resource) {
+//                return $resource('http://127.0.0.1:3000/getUserList');
+//            });
 })();

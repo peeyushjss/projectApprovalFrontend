@@ -1,27 +1,101 @@
 <div class="container">
+
     <div class="row">
-        <h1 style="text-align: center;">Project List</h1>    
+        <h1 style="text-align: center;">Upload Project</h1>    
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <table class="table-bordered">
-                <tr>
-                    <th>Serial No</th>
-                    <th>Project Id</th>
-                    <th>User Name</th>
-                    <th>Department</th>
-                    <th>Assigned To</th>
-                    <th>Action</th>
-                </tr>
-                <tr ng-repeat="user in userListdata.userList track by $index" style="text-align: center;">
-                    <td>{{$index + 1}}</td>
-                    <td>{{user.member_id}}</td>
-                    <td>{{user.member_name}}</td>
-                    <td>{{user.department}}</td>
-                    <td>{{user.role}}</td>
-                    <td>Delete</td>
-                </tr>
-            </table>
+            <form name="myform" novalidate>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="projectname" class="form-control input-lg" placeholder="Project Name" ng-model="projectinfo.name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <textarea rows="4" cols="50" name="projectintro" class="form-control input-lg" placeholder="Project Introduction" ng-model="projectinfo.introduction">
+                                
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input style="margin: 5px 10px;" type="radio" name="synopsys" placeholder="Synopsys" ng-model="projectinfo.type" value="synopsys">Synopsys
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input style="margin: 5px 10px;" type="radio" name="project"  placeholder="Project" ng-model="projectinfo.type" value="project">Project
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="projectinfo.type == 'project'">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group" style="margin-left: 25px; font-size: 1.5em;">
+                            Upload Project: 
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="file" ngf-select="uploadPic(projectinfo.docFile)" ng-model="projectinfo.docFile" name="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="projectinfo.type == 'synopsys'">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group" style="margin-left: 25px; font-size: 1.5em;">
+                            Upload Synopsys:
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="file" ngf-select="uploadPic(projectinfo.docFile)" ng-model="projectinfo.docFile" name="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 col-lg-12"><i ng-hide="projectinfo.mySpin" style="font-size: 25px; margin-left: 318px; margin-top: -15px;" class="ic fa-li fa fa-spinner fa-spin mySpin"></i></div>
+                </div>
+                <hr class="colorgraph">
+
+                <div class="row" style="margin-bottom: 25px;">
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Submit" class="btn btn-primary btn-block btn-lg" ng-click="uploadProject(projectinfo);"></div>
+                    <div class="col-xs-12 col-md-6"><input type="submit" value="Back" class="btn btn-primary btn-block btn-lg" ng-click="back();"></div>
+                </div>
+            </form>
         </div>
     </div>
+
+
+    <!--    <div class="row">
+            <h1 style="text-align: center;">Project List</h1>    
+        </div>-->
+    <!--    <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                <table class="table-bordered">
+                    <tr>
+                        <th>Serial No</th>
+                        <th>Project Id</th>
+                        <th>User Name</th>
+                        <th>Department</th>
+                        <th>Assigned To</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr ng-repeat="user in userListdata.userList track by $index" style="text-align: center;">
+                        <td>{{$index + 1}}</td>
+                        <td>{{user.member_id}}</td>
+                        <td>{{user.member_name}}</td>
+                        <td>{{user.department}}</td>
+                        <td>{{user.role}}</td>
+                        <td>Delete</td>
+                    </tr>
+                </table>
+            </div>
+        </div>-->
 </div> 
