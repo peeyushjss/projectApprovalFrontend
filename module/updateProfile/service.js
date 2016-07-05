@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('updateProfile.service', [])
+    angular.module('updateProfile.controller')
 //            SERVICE FOR SETTING PROFILE INFORMATION IN DATABASE
             .factory('setProfileDetails', function ($resource) {
                 return $resource('http://127.0.0.1:3000/updateProfile');

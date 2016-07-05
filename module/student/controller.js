@@ -14,5 +14,9 @@
                     $location.path('/' + userId + '/project');
                 };
 
+                $scope.status = function () {
+                    $location.path('/' + userId + '/status');
+                };
+
             });
 })();

@@ -1,26 +1,15 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-angular.module('project_approval_system', ['ngResource', 'ui.router', 'services', 'controllers', 'ngStorage', 'ngFileUpload',
+angular.module('project_approval_system', ['ngResource', 'ui.router', 'services', 'ngStorage', 'ngFileUpload', '720kb.datepicker',
+    'controllers',
     'admin.controller',
     'hod.controller',
     'projectIncharge.controller',
     'internalGuide.controller',
     'student.controller',
     'newUser.controller',
-    'newUser.service',
     'updateProfile.controller',
-    'updateProfile.service',
-    'ui.bootstrap.datetimepicker',
     'userList.controller',
-    'userList.service',
     'test.controller',
-    'projects.controller',
-    'projects.service'
+    'projects.controller'
 ])
         .config(['$stateProvider', '$urlRouterProvider',
             function ($stateProvider, $urlRouteProvider) {
@@ -78,7 +67,17 @@ angular.module('project_approval_system', ['ngResource', 'ui.router', 'services'
                         .state('project', {
                             url: '/:userId/project',
                             templateUrl: 'module/projects/template.html',
-                            controller: 'projectCtrl'
+                            controller: 'projectUploadCtrl'
+                        })
+                        .state('projectList', {
+                            url: '/:userId/projectList',
+                            templateUrl: 'module/projects/template.html',
+                            controller: 'projectListCtrl'
+                        })
+                        .state('status', {
+                            url: '/:userId/status',
+                            templateUrl: 'module/status/template.html',
+                            controller: 'statusCtrl'
                         })
                         .state('test', {
                             url: '/test',

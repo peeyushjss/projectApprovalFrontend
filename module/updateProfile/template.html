@@ -19,57 +19,50 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="firstname" class="form-control input-lg" placeholder="First Name" ng-model="updateProfiledata.firstname">
                         </div>
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="lastname" class="form-control input-lg" placeholder="Last Name" ng-model="updateProfiledata.lastname">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="fathername" class="form-control input-lg" placeholder="Father Name" ng-model="updateProfiledata.fathername">
                         </div>
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="mothername" class="form-control input-lg" placeholder="Mother Name" ng-model="updateProfiledata.mothername">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 scol-sm-6 col-md-6">
                         <div class="form-group">
-                            <!--<input type="text" name="dob" class="form-control input-lg" placeholder="DOB" ng-model="updateProfiledata.dob">-->
-
-                            <datetimepicker data-ng-model="updateProfiledata.dob"></datetimepicker>
+                            <datepicker date-format="MMMM d, y">
+                                <input type="text" name="dob" class="form-control input-lg" placeholder="Date of Birth" ng-model="updateProfiledata.dob">
+                            </datepicker>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="qualification" class="form-control input-lg" placeholder="Qualification" ng-model="updateProfiledata.qualification">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="specialization" class="form-control input-lg" placeholder="Specialization" ng-model="updateProfiledata.specialization">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="contact" class="form-control input-lg" placeholder="Contact" ng-model="updateProfiledata.contact">
                         </div>
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <textarea name="address" class="form-control input-lg" placeholder="Address" ng-model="updateProfiledata.address">
                             </textarea>                       
@@ -84,12 +77,29 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <select name="department" ng-model="updateProfiledata.department" style="width: 260px; height: 46px; border-radius: 5px;">
+                            <select name="department" ng-model="updateProfiledata.department" style="width: 170px; height: 46px; border-radius: 5px;">
                                 <option value="BBA">BBA</option>
                                 <option value="BCA">BCA</option>
                                 <option value="BTECH">BTECH</option>
                                 <option value="MBA">MBA</option>
                                 <option value="MCA">MCA</option>
+                            </select>     
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: 25px; font-weight: initial; margin: 5px 50px;">Qualfication:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <select name="qualification" ng-model="updateProfiledata.qualification" style="width: 170px; height: 46px; border-radius: 5px;">
+                                <option value="UnderGraduate">UnderGraduate</option>
+                                <option value="Graduate">Graduate</option>
+                                <option value="PostGraduate">PostGraduate</option>
+                                <option value="Phd">Phd</option>
                             </select>     
                         </div>
                     </div>

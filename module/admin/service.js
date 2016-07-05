@@ -3,5 +3,5 @@
 (function () {
     'use strict';
 
-    angular.module('admin.service', [])
+    angular.module('admin.controller')
 })();

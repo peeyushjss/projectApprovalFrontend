@@ -52,6 +52,8 @@
                     self.qualification = data.qualification;
                     self.specialization = data.specialization;
                     if (typeof data !== 'undefined') {
+                        console.log(data.dob);
+                        console.log(self.dob);
                         self.updateRecord = setProfileDetails.save({memberId: self.memberId, firstName: self.firstname,
                             lastName: self.lastname, department: self.department, dob: self.dob, address: self.address,
                             contact: self.contact, fatherName: self.fathername, motherName: self.mothername,

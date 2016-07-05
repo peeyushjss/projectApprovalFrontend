@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('userList.service', [])
+    angular.module('userList.controller')
 
 //    SERVICE FOR GETTING USER INFORMATION FROM DATABASE
             .factory('getUserList', function ($resource) {
